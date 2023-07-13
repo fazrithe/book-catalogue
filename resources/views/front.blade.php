@@ -2,7 +2,7 @@
 <html>
 
   <head>
-  <link rel="shortcut icon" href="images/KPK_Logo.svg">
+  <link rel="shortcut icon" href="">
   <title>View PDF</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -22,8 +22,9 @@
   <script src="{{ asset("flip/js/flipbook.min.js") }}"></script>
 
   <script type="text/javascript">
-
-      $(document).ready(function () {
+      // $(document).ready(function () {
+      function readCat(val){
+        console.log(val);
         $("#read").flipBook({
             //Layout Setting
             pdfUrl: '{{ asset("flip/pdf/tlg2019.pdf") }}',
@@ -78,7 +79,7 @@
             enabled: true,
             url: "#"
             }
-        });
+        })
 
         $("#readCatalogue").flipBook({
             //Layout Setting
@@ -135,7 +136,8 @@
             url: "#"
             }
         });
-      })
+      // })
+        }
   </script>
 
   <style>
@@ -162,7 +164,7 @@
     }
 
     .image {
-        width: 35%;
+        width: 380px;
     }
 
     @media only screen and (max-width: 768px) {
@@ -211,16 +213,9 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="readCatalogue">{{ __('Catalogue') }}</a>
-                        </li>
-                    @endif
-
-                @else
-
-                @endguest
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="readCatalogue" onclick="readCat('rrr')">{{ __('Catalogue') }}</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -230,11 +225,18 @@
   <br><br><br><br>
 
   <!-- PDF INFORMATION -->
-  <section class="justify-content-center" id="info" style="background-image: url('{{ asset('img/bg.jpg')}}');">
-    <div class="container text-center">
-        <img src="{{ asset("flip/images/book2/1.jpg") }}" class="image" id="read">
-    </div>
-  </section>
+    <section class="justify-content-center" id="info" style="background-image: url('{{ asset('img/bg.jpg')}}'); hight:200%">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col mt-2 mb-2">
+            <img src="{{ asset("flip/images/book2/1.jpg") }}" class="image" id="read" data-id="123" onclick="readCat('sss')">
+          </div>
+          {{-- <div class="col-4">
+            <img src="{{ asset("flip/images/book2/1.jpg") }}" class="image" id="read" data-id="123" onclick="readCat('sss')">
+          </div> --}}
+        </div>
+      </div>
+    </section>
   <!-- END OF PDF INFORMATION -->
 
   <!-- Optional JavaScript -->
