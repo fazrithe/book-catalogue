@@ -96,10 +96,10 @@ class CatalogueController extends Controller
         $cat    = Catalogue::where('id', $request->id)->first();
         if($request->file()) {
             $fileName = time().'_'.$request->file->getClientOriginalName();
-            $filePath = $request->file('file')->storeAs('uploads/file', $fileName, 'public');
+            $filePath = $request->file('file')->storeAs('public/uploads/file', $fileName, 'public');
 
             $coverName = time().'_'.$request->cover->getClientOriginalName();
-            $coverPath = $request->file('cover')->storeAs('uploads', $coverName, 'public');
+            $coverPath = $request->file('cover')->storeAs('public/uploads', $coverName, 'public');
 
             $cat->name      = $request->name;
             $cat->file_name = time().'_'.$request->file->getClientOriginalName();
