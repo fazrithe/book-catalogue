@@ -89,7 +89,7 @@ class CatalogueController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'file' => 'required|mimes:pdf|max:8048',
+            'file' => 'required|mimes:pdf|max:20048',
             'cover' => 'required|mimes:jpg,png|max:2048'
         ]);
 
