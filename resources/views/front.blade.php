@@ -29,7 +29,7 @@
 
         $('#read').flipBook({
             //Layout Setting
-            pdfUrl:  '{{ asset(public/$data->file_path) }}',
+            pdfUrl:  '{{ asset("public/"$data->file_path) }}',
             lightBox:true,
             layout:3,
             currentPage:{vAlign:"bottom", hAlign:"left"},
@@ -85,7 +85,7 @@
 
         $('#readCatalogue').flipBook({
             //Layout Setting
-            pdfUrl:  '{{ asset(public/$data->file_path) }}',
+            pdfUrl:  '{{ asset("public/"$data->file_path) }}',
             lightBox:true,
             layout:3,
             currentPage:{vAlign:"bottom", hAlign:"left"},
