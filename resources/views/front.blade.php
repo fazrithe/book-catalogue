@@ -22,12 +22,14 @@
   <script src="{{ asset("flip/js/flipbook.min.js") }}"></script>
 
   <script type="text/javascript">
-      // $(document).ready(function () {
-      function readCat(val){
-        console.log(val);
-        $("#read").flipBook({
+      $(document).ready(function () {
+
+    //   function readCat(val,id){
+    //     console.log(val);
+
+        $('#read').flipBook({
             //Layout Setting
-            pdfUrl: '{{ asset("flip/pdf/tlg2019.pdf") }}',
+            pdfUrl:  '{{ asset($data->file_path) }}',
             lightBox:true,
             layout:3,
             currentPage:{vAlign:"bottom", hAlign:"left"},
@@ -81,9 +83,9 @@
             }
         })
 
-        $("#readCatalogue").flipBook({
+        $('#readCatalogue').flipBook({
             //Layout Setting
-            pdfUrl: '{{ asset("flip/pdf/tlg2019.pdf") }}',
+            pdfUrl:  '{{ asset($data->file_path) }}',
             lightBox:true,
             layout:3,
             currentPage:{vAlign:"bottom", hAlign:"left"},
@@ -136,8 +138,8 @@
             url: "#"
             }
         });
-      // })
-        }
+      })
+        // }
   </script>
 
   <style>
@@ -195,7 +197,8 @@
     </div>
 
   </nav> --}}
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset("img/logo.png") }}" alt="Tian Liong" width="150">
@@ -214,8 +217,18 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="readCatalogue" onclick="readCat('rrr')">{{ __('Catalogue') }}</a>
+                    <a class="nav-link" href="#" id="readCatalogue"><b>{{ __('Catalogue') }}</b></a>
                 </li>
+                {{-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Catalogue
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach($data as $value)
+                            <a class="nav-link" href="#" id="readCatalogue{{$value->id}}" onclick="readCat('{{$value->file_path}}','{{$value->id}}')">{{ $value->name }}</a>
+                        @endforeach
+                    </div>
+                  </li> --}}
             </ul>
         </div>
     </div>
@@ -228,9 +241,11 @@
     <section class="justify-content-center" id="info" style="background-image: url('{{ asset('img/bg.jpg')}}'); hight:200%">
       <div class="container text-center">
         <div class="row">
+        {{-- @foreach($data as $value) --}}
           <div class="col mt-2 mb-2">
-            <img src="{{ asset("flip/images/book2/1.jpg") }}" class="image" id="read" data-id="123" onclick="readCat('sss')">
+            <img src="{{ asset($data->cover_path) }}" class="image" id="read" data-id="123">
           </div>
+        {{-- @endforeach --}}
           {{-- <div class="col-4">
             <img src="{{ asset("flip/images/book2/1.jpg") }}" class="image" id="read" data-id="123" onclick="readCat('sss')">
           </div> --}}

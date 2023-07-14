@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form action="{{ route('catalogue.save') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('catalogue.update') }}" method="post" enctype="multipart/form-data">
                           @csrf
                           @if ($message = Session::get('success'))
                           <div class="alert alert-success">
@@ -31,7 +31,8 @@
                         @endif
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
-                            <input type="text" name="name" class="form-control" placeholder="Name" required>
+                            <input type="hidden" name="id" value="{{ $data->id }}">
+                            <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $data->name }}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">File</label>

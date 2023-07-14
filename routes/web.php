@@ -25,3 +25,5 @@ Route::get('/catalogue', [App\Http\Controllers\CatalogueController::class, 'inde
 Route::get('/catalogue/create', [App\Http\Controllers\CatalogueController::class, 'create'])->name('catalogue.create');
 Route::post('/catalogue/save', [App\Http\Controllers\CatalogueController::class, 'store'])->name('catalogue.save');
 Route::get('/catalogue/edit/{id}', [App\Http\Controllers\CatalogueController::class, 'edit'])->name('catalogue.edit');
+Route::post('/catalogue/update', [App\Http\Controllers\CatalogueController::class, 'update'])->name('catalogue.update');
+Route::get('/catalogue/delte/{id}', [App\Http\Controllers\CatalogueController::class, 'destroy'])->name('catalogue.delete');

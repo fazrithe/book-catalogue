@@ -18,7 +18,7 @@
 
                         </div>
                         <div class="col-2">
-                            <a href="{{ route('catalogue.create') }}" class="btn btn-primary">Create</a>
+                            {{-- <a href="{{ route('catalogue.create') }}" class="btn btn-primary">Create</a> --}}
                         </div>
                     </div>
                     <table id="datatable" class="table">
@@ -37,7 +37,7 @@
                                 <td>{{ $value->file_name }}</td>
                                 <td>{{ $value->cover_name }}</td>
                                 <td><a href="{{ route('catalogue.edit',$value->id) }}" class="btn btn-success">Edit</a>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    {{-- <a href="{{ route('catalogue.delete',$value->id) }}" class="btn btn-danger">Delete</a> --}}
                                 </td>
                             </tr>
                             @endforeach
