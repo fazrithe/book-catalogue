@@ -105,9 +105,10 @@
             },
             btnColor:'rgb(255,120,60)',
             sideBtnColor:'rgb(255,120,60)',
-            sideBtnSize:60,
-            sideBtnBackground:"rgba(0,0,0,.7)",
-            sideBtnRadius:60,
+            sideBtnSize:30,
+            sideBtnBackground:"rgba(0,0,0,.2)",
+            sideBtnRadius:30,
+            sideBtnPosition: button,
             btnSound:{vAlign:"top", hAlign:"left"},
             btnAutoplay:{vAlign:"top", hAlign:"left"},
             // SHARING
