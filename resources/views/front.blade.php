@@ -29,7 +29,7 @@
 
         $('#read').flipBook({
             //Layout Setting
-            pdfUrl:  '{{ asset($data->file_path) }}',
+            pdfUrl:  '{{ asset(public/$data->file_path) }}',
             lightBox:true,
             layout:3,
             currentPage:{vAlign:"bottom", hAlign:"left"},
@@ -85,7 +85,7 @@
 
         $('#readCatalogue').flipBook({
             //Layout Setting
-            pdfUrl:  '{{ asset($data->file_path) }}',
+            pdfUrl:  '{{ asset(public/$data->file_path) }}',
             lightBox:true,
             layout:3,
             currentPage:{vAlign:"bottom", hAlign:"left"},
@@ -243,7 +243,7 @@
         <div class="row">
         {{-- @foreach($data as $value) --}}
           <div class="col mt-2 mb-2">
-            <img src="{{ asset($data->cover_path) }}" class="image" id="read" data-id="123">
+            <img src="{{ asset('public/'$data->cover_path) }}" class="image" id="read" data-id="123">
           </div>
         {{-- @endforeach --}}
           {{-- <div class="col-4">
