@@ -254,7 +254,7 @@
       </div>
     </section>
 <!-- END OF PDF INFORMATION -->
-<iframe src="{{ asset($audio->file_path) }}" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+{{-- <iframe src="{{ asset($audio->file_path) }}" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe> --}}
 <audio autoplay id="audioplayer">
     <source src="{{ asset($audio->file_path) }}" type="audio/mp3">
 </audio>
