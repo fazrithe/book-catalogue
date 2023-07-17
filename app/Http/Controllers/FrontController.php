@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Catalogue;
+use App\Models\Audio;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -14,7 +15,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $data = Catalogue::all()->first();
-        return view('front', compact('data'));
+        $data   = Catalogue::all()->first();
+        $audio  = Audio::all()->first();
+        return view('front', compact('data','audio'));
     }
 }

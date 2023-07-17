@@ -27,3 +27,5 @@ Route::post('/catalogue/save', [App\Http\Controllers\CatalogueController::class,
 Route::get('/catalogue/edit/{id}', [App\Http\Controllers\CatalogueController::class, 'edit'])->name('catalogue.edit');
 Route::post('/catalogue/update', [App\Http\Controllers\CatalogueController::class, 'update'])->name('catalogue.update');
 Route::get('/catalogue/delte/{id}', [App\Http\Controllers\CatalogueController::class, 'destroy'])->name('catalogue.delete');
+Route::get('/audio', [App\Http\Controllers\AudioController::class, 'index'])->name('audio');
+Route::post('/audio/update', [App\Http\Controllers\AudioController::class, 'update'])->name('audio.update');
