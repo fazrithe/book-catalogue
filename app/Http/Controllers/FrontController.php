@@ -15,8 +15,9 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $data   = Catalogue::all()->first();
+        $data   = Catalogue::all();
+        $data2   = Catalogue::all()->first();
         $audio  = Audio::all()->first();
-        return view('front', compact('data','audio'));
+        return view('front', compact('data','data2','audio'));
     }
 }

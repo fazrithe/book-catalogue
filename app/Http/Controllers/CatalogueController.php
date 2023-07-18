@@ -46,7 +46,7 @@ class CatalogueController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => 'required|mimes:pdf|max:8048',
+            'file' => 'required|mimes:pdf|max:50048',
             'cover' => 'required|mimes:jpg,png|max:2048'
         ]);
 
@@ -60,9 +60,9 @@ class CatalogueController extends Controller
 
             $cat->name      = $request->name;
             $cat->file_name = time().'_'.$request->file->getClientOriginalName();
-            $cat->file_path = '/storage/' . $filePath;
+            $cat->file_path = '/public/storage/' . $filePath;
             $cat->cover_name = time().'_'.$request->cover->getClientOriginalName();
-            $cat->cover_path = '/storage/' . $coverPath;
+            $cat->cover_path = '/public/storage/' . $coverPath;
             $cat->save();
         }
 

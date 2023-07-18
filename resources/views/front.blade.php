@@ -27,66 +27,87 @@
     //   function readCat(val,id){
     //     console.log(val);
 
-        $('#read').flipBook({
-            //Layout Setting
-            pdfUrl:  '{{ asset($data->file_path) }}',
-            lightBox:true,
-            layout:3,
-            currentPage:{vAlign:"bottom", hAlign:"left"},
-            // BTN SETTING
-            btnShare : {enabled:false},
-            btnPrint : {
-              hideOnMobile:false
-            },
-            duration: 900,
-            btnDownloadPages : {
-              enabled: true,
-              title: "Download pages",
-              icon: "fa-download",
-              icon2: "file_download",
-              url: "images/pdf.rar",
-              name: "allPages.zip",
-              hideOnMobile:false
-            },
-            btnColor:'rgb(255,120,60)',
-            sideBtnColor:'rgb(255,120,60)',
-            sideBtnSize:30,
-            sideBtnBackground:"rgba(0,0,0,.2)",
-            sideBtnRadius:30,
-            btnSound:{vAlign:"top", hAlign:"left"},
-            btnAutoplay:{vAlign:"top", hAlign:"left"},
-            // SHARING
-            btnShare : {
-              enabled: true,
-              title: "Share",
-              icon: "fa-share-alt"
-            },
-            facebook : {
-              enabled: true,
-              url: "ismanyan.github.io/Pdf_flipbook.demo.github.io/pdf/pdf.pdf"
-            },
-            google_plus : {
-              enabled: false
-            },
-            email : {
-              enabled: true,
-              url: "#",
-              title: "PDF",
-              description: "Silahkan click link di bawah untuk melihat / mengunduf pdf"
-            },
-            twitter : {
-              enabled: true,
-              url: "#"
-            },
-            pinterest : {
-            enabled: true,
-            url: "#"
-            }
-        })
+        // $('#read').flipBook({
+        //     //Layout Setting
+        //     pdfUrl:  '{{ asset($data2->file_path) }}',
+        //     lightBox:true,
+        //     layout:3,
+        //     currentPage:{vAlign:"bottom", hAlign:"left"},
+        //     // BTN SETTING
+        //         // BTN SETTING
+        //     // btnToc : {
+        //     // enabled: true,
+        //     // title: "Table of content",
+        //     // icon: "fa-list-ol"
+        //     // },
+
+        //     // btnShare: {enabled: true},
+        //     btnShareIfMobile: {enabled:true},
+        //     btnPrint : {
+        //       hideOnMobile:false
+        //     },
+        //     duration: 900,
+        //     btnDownloadPages : {
+        //       enabled: true,
+        //       title: "Download pages",
+        //       icon: "fa-download",
+        //       icon2: "file_download",
+        //       url: "images/pdf.rar",
+        //       name: "allPages.zip",
+        //       hideOnMobile:false
+        //     },
+        //     btnColor:'rgb(255,120,60)',
+        //     sideBtnColor:'rgb(255,120,60)',
+        //     sideBtnSize:30,
+        //     sideBtnBackground:"rgba(0,0,0,.2)",
+        //     sideBtnRadius:30,
+        //     btnSound:{vAlign:"top", hAlign:"left"},
+        //     btnAutoplay:{vAlign:"top", hAlign:"left"},
+        //     btnSearch: {
+        //         enabled: false
+        //     },
+        //     // SHARING
+        //     btnShare : {
+        //       enabled: true,
+        //       title: "Share",
+        //       url: "ismanyan.github.io/Pdf_flipbook.demo.github.io/pdf/pdf.pdf",
+        //       icon: "fa-share-alt",
+        //       text: true,
+        //     },
+        //     btnTextShadow: {
+        //         enabled: true
+        //     },
+        //     facebook : {
+        //       enabled: true,
+        //       url: "ismanyan.github.io/Pdf_flipbook.demo.github.io/pdf/pdf.pdf"
+        //     },
+        //     whatsapp : {
+        //         enabled: true,
+        //         icon: "fa-share-alt",
+        //         url: "ismanyan.github.io/Pdf_flipbook.demo.github.io/pdf/pdf.pdf"
+        //     },
+        //     google_plus : {
+        //       enabled: false
+        //     },
+        //     email : {
+        //       enabled: true,
+        //       url: "#",
+        //       title: "PDF",
+        //       description: "Silahkan click link di bawah untuk melihat / mengunduf pdf"
+        //     },
+        //     twitter : {
+        //       enabled: true,
+        //       url: "#"
+        //     },
+        //     pinterest : {
+        //     enabled: true,
+        //     url: "#"
+        //     }
+        // })
 
         $('#readCatalogue').flipBook({
             //Layout Setting
-            pdfUrl:  '{{ asset($data->file_path) }}',
+            pdfUrl:  '{{ asset($data2->file_path) }}',
             lightBox:true,
             layout:3,
             currentPage:{vAlign:"bottom", hAlign:"left"},
@@ -242,11 +263,96 @@
     <section class="justify-content-center" id="info" style="background-image: url('{{ asset('img/bg.jpg')}}'); hight:200%">
       <div class="container text-center">
         <div class="row">
-        {{-- @foreach($data as $value) --}}
+        @foreach($data as $value)
           <div class="col mt-2 mb-2">
-            <img src="{{ asset($data->cover_path) }}" class="image" id="read" data-id="123">
+            <img src="{{ asset($value->cover_path) }}" class="image" id="read" data-id="123">
           </div>
-        {{-- @endforeach --}}
+          <script>
+            $(document).ready(function () {
+
+          //   function readCat(val,id){
+          //     console.log(val);
+
+              $('#read').flipBook({
+                  //Layout Setting
+                  pdfUrl:  '{{ asset($value->file_path) }}',
+                  lightBox:true,
+                  layout:3,
+                  currentPage:{vAlign:"bottom", hAlign:"left"},
+                  // BTN SETTING
+                      // BTN SETTING
+                  // btnToc : {
+                  // enabled: true,
+                  // title: "Table of content",
+                  // icon: "fa-list-ol"
+                  // },
+
+                  // btnShare: {enabled: true},
+                  btnShareIfMobile: {enabled:true},
+                  btnPrint : {
+                    hideOnMobile:false
+                  },
+                  duration: 900,
+                  btnDownloadPages : {
+                    enabled: true,
+                    title: "Download pages",
+                    icon: "fa-download",
+                    icon2: "file_download",
+                    url: "images/pdf.rar",
+                    name: "allPages.zip",
+                    hideOnMobile:false
+                  },
+                  btnColor:'rgb(255,120,60)',
+                  sideBtnColor:'rgb(255,120,60)',
+                  sideBtnSize:30,
+                  sideBtnBackground:"rgba(0,0,0,.2)",
+                  sideBtnRadius:30,
+                  btnSound:{vAlign:"top", hAlign:"left"},
+                  btnAutoplay:{vAlign:"top", hAlign:"left"},
+                  btnSearch: {
+                      enabled: false
+                  },
+                  // SHARING
+                  btnShare : {
+                    enabled: true,
+                    title: "Share",
+                    url: "{{ asset($value->file_path) }}",
+                    icon: "fa-share-alt",
+                    text: true,
+                  },
+                  btnTextShadow: {
+                      enabled: true
+                  },
+                  facebook : {
+                    enabled: true,
+                    url: "{{ asset($value->file_path) }}"
+                  },
+                  whatsapp : {
+                      enabled: true,
+                      icon: "fa-share-alt",
+                      url: "{{ asset($value->file_path) }}"
+                  },
+                  google_plus : {
+                    enabled: false
+                  },
+                  email : {
+                    enabled: true,
+                    url: "#",
+                    title: "PDF",
+                    description: "{{ asset($value->file_path) }}"
+                  },
+                  twitter : {
+                    enabled: true,
+                    url: "#"
+                  },
+                  pinterest : {
+                  enabled: true,
+                  url: "#"
+                  }
+                });
+                })
+              </script>
+        @endforeach
           {{-- <div class="col-4">
             <img src="{{ asset("flip/images/book2/1.jpg") }}" class="image" id="read" data-id="123" onclick="readCat('sss')">
           </div> --}}
@@ -260,11 +366,11 @@
 </audio>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $("#audioplayer").get(0).play();
         });
-    </script>
+    </script> --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
