@@ -265,7 +265,7 @@
         <div class="row">
         @foreach($data as $value)
           <div class="col mt-2 mb-2">
-            <img src="{{ asset($value->cover_path) }}" class="image" id="read" data-id="123">
+            <img src="{{ asset($value->cover_path) }}" class="image" id="read{{$value->id}}" data-id="123">
           </div>
           <script>
             $(document).ready(function () {
@@ -273,7 +273,7 @@
           //   function readCat(val,id){
           //     console.log(val);
 
-              $('#read').flipBook({
+              $('#read{{$value->id}}').flipBook({
                   //Layout Setting
                   pdfUrl:  '{{ asset($value->file_path) }}',
                   lightBox:true,
